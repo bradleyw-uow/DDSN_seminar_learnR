@@ -6,7 +6,7 @@ library(haven)
 diabetes <- read_sav("diabetes.sav")
 
 # Allocate labels to categorical variable
-diabetes$Diabetes <- factor(diabetes$Diabetes)
+diabetes$Diabetes <- factor(diabetes$Diabetes,levels = c(2,1))
 levels(diabetes$Diabetes) <- c("No Diabetes","Has Diabetes")
 
 # Proportion of patients with and without diabetes
@@ -22,6 +22,7 @@ boxplot(bmi ~ Diabetes,data=diabetes)
 boxplot(age ~ Diabetes,data=diabetes)
 
 # Plot of data 
+library(ggplot2)
 ggplot(diabetes) + 
   geom_point(aes(x=bmi,y=gluc,col=Diabetes))
 

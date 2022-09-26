@@ -156,9 +156,9 @@ I'm going to change the name of my data set to `data` in the `Name:` option.
 
 When I click `Import` a data viewer should open and the following code should appear in the console.
 
-```{r,echo=F,message=F,warning=F}
+```{r,eval=T,echo=F,message=F,warning=F}
 library(readxl)
-data <- read_excel("C:/Users/bradleyw/Desktop/cholesterol.xlsx")
+data <- read_excel("cholesterol.xlsx")
 ```
 
 ```{r,eval=F}
@@ -341,7 +341,7 @@ The data is currently saved in a SPSS file, `diabetes.sav`.
 
 ```{r,echo=F}
 library(haven)
-diabetes <- read_sav("C:/Users/bradleyw/Desktop/diabetes.sav")
+diabetes <- read_sav("diabetes.sav")
 ```
 
 Suppose we wish to model the odds that a women from the Pima Indians diabetes study haves diabetes given their plasma glucose concentration (`gluc`), body mass index (`bmi`), and age (`age`). That is, we wish to model the probability of the `Diabetes` column taking the value `Has Diabetes`.
@@ -356,7 +356,7 @@ library(haven)
 diabetes <- read_sav("diabetes.sav")
 
 # Allocate labels to categorical variable
-diabetes$Diabetes <- factor(diabetes$Diabetes)
+diabetes$Diabetes <- factor(diabetes$Diabetes,levels = c(2,1))
 levels(diabetes$Diabetes) <- c("No Diabetes","Has Diabetes")
 
 # Proportion of patients with and without diabetes
@@ -372,6 +372,7 @@ boxplot(bmi ~ Diabetes,data=diabetes)
 boxplot(age ~ Diabetes,data=diabetes)
 
 # Plot of data 
+library(ggplot2)
 ggplot(diabetes) + 
   geom_point(aes(x=bmi,y=gluc,col=Diabetes))
 
