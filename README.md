@@ -1,4 +1,4 @@
-# DDSN_seminar_learnR
+# UOW Data and Decision Science Initiative - Seminar - Should I Learn R
 This repository has been created to share the files relating to presentation given on 21 Sept 2022
 conducted by Brad Wakefield and Prof Marijka Batterham for UOW's Data and Decision Science Network.
 
