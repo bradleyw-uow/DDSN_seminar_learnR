@@ -1,8 +1,10 @@
 ---
-title: "Should I Learn R?"
+title: "Should I Use R?"
 author: "Brad Wakefield"
-date: 'DDSN Sept 2022'
-output: html_document
+date: "DDSN Sept 2022"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
